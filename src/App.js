@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
+import { ThemeProvider, CSSReset } from '@chakra-ui/core';
+import { Global } from '@emotion/core';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import store from './store/configureStore.js';
+import customTheme from './theme/theme';
+
+import { Container, NavBar, PostForm, PostList } from './components';
+
+const App = () => (
+  <Provider store={store}>
+    <ThemeProvider theme={customTheme}>
+      <Global
+        styles={{
+          body: {
+            background:
+              'linear-gradient(-45deg, rgb(255, 217, 249), rgb(209, 248, 255))',
+          },
+        }}
+      />
+      <CSSReset />
+      <Container>
+        <NavBar />
+        <PostForm />
+        <PostList />
+      </Container>
+    </ThemeProvider>
+  </Provider>
+);
 
 export default App;
