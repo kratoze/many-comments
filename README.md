@@ -1,6 +1,6 @@
 # many-comments
 
-Front end for Many Comments
+Front end for Many Comments (find the backend here https://github.com/kratoze/many-comments-api)
 
 A Reddit-ish clone that allows a user to make posts, comment on posts, comment on comments, and upvote/downvote posts and comments.
 
